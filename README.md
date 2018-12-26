@@ -1,4 +1,7 @@
 # go-decimal-to-rational
+
+[![Build Status](https://travis-ci.org/av-elier/go-decimal-to-rational.svg?branch=master)](https://travis-ci.org/av-elier/go-decimal-to-rational)
+
 Go library to convert decimal (float64) to rational fraction with required precision
 
 Relies on [Continued Fraction](http://mathworld.wolfram.com/ContinuedFraction.html) algorythm.
