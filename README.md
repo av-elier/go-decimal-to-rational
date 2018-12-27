@@ -31,3 +31,24 @@ func ExampleNewRatIterations() {
 	// 6667/10000
 }
 ```
+
+# Docs
+```
+import dectofrac "github.com/av-elier/go-decimal-to-rational"
+```
+
+#### func NewRatIterations
+
+```go
+func NewRatIterations(val float64, iterations int64) *big.Rat
+```
+NewRatIterations returns rational from decimal using `iterations` number of
+iterations in Continued Fraction algorythm
+
+#### func NewRatPrecision
+
+```go
+func NewRatPrecision(val float64, precision float64) *big.Rat
+```
+NewRatPrecision returns rational from decimal by going as mush iterations, until
+next fraction is less than precision
