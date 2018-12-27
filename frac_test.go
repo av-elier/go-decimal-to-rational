@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestNewRatIterations(t *testing.T) {
+func TestNewRatI(t *testing.T) {
 	type testCase struct {
 		expected   string
 		float      float64
@@ -27,12 +27,12 @@ func TestNewRatIterations(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.expected, func(t *testing.T) {
-			assert.Equal(t, test.expected, NewRatIterations(test.float, test.iterations).String())
+			assert.Equal(t, test.expected, NewRatI(test.float, test.iterations).String())
 		})
 	}
 }
 
-func TestNewRatPrecision(t *testing.T) {
+func TestNewRatP(t *testing.T) {
 	type testCase struct {
 		expected  string
 		float     float64
@@ -53,24 +53,24 @@ func TestNewRatPrecision(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.expected, func(t *testing.T) {
-			assert.Equal(t, test.expected, NewRatPrecision(test.float, test.precision).String())
+			assert.Equal(t, test.expected, NewRatP(test.float, test.precision).String())
 		})
 	}
 }
 
-func ExampleNewRatPrecision() {
-	fmt.Println(NewRatPrecision(0.6666, 0.01).String())
-	fmt.Println(NewRatPrecision(0.981, 0.001).String())
-	fmt.Println(NewRatPrecision(0.75, 0.01).String())
+func ExampleNewRatP() {
+	fmt.Println(NewRatP(0.6666, 0.01).String())
+	fmt.Println(NewRatP(0.981, 0.001).String())
+	fmt.Println(NewRatP(0.75, 0.01).String())
 	// Output:
 	// 2/3
 	// 981/1000
 	// 3/4
 }
 
-func ExampleNewRatIterations() {
-	fmt.Println(NewRatIterations(0.6667, 3).String())
-	fmt.Println(NewRatIterations(0.6667, 4).String())
+func ExampleNewRatI() {
+	fmt.Println(NewRatI(0.6667, 3).String())
+	fmt.Println(NewRatI(0.6667, 4).String())
 	// Output:
 	// 2/3
 	// 6667/10000

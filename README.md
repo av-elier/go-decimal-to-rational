@@ -12,10 +12,10 @@ you can only get `3333/50000`, and have no way to manipulate than (as of go 1.11
 
 # Example
 ```go
-func ExampleNewRatPrecision() {
-	fmt.Println(NewRatPrecision(0.6666, 0.01).String())
-	fmt.Println(NewRatPrecision(0.981, 0.001).String())
-	fmt.Println(NewRatPrecision(0.75, 0.01).String())
+func ExampleNewRatP() {
+	fmt.Println(NewRatP(0.6666, 0.01).String())
+	fmt.Println(NewRatP(0.981, 0.001).String())
+	fmt.Println(NewRatP(0.75, 0.01).String())
 	// Output:
 	// 2/3
 	// 981/1000
@@ -23,9 +23,9 @@ func ExampleNewRatPrecision() {
 }
 ```
 ```go
-func ExampleNewRatIterations() {
-	fmt.Println(NewRatIterations(0.6667, 3).String())
-	fmt.Println(NewRatIterations(0.6667, 4).String())
+func ExampleNewRatI() {
+	fmt.Println(NewRatI(0.6667, 3).String())
+	fmt.Println(NewRatI(0.6667, 4).String())
 	// Output:
 	// 2/3
 	// 6667/10000
@@ -37,18 +37,18 @@ func ExampleNewRatIterations() {
 import dectofrac "github.com/av-elier/go-decimal-to-rational"
 ```
 
-#### func NewRatIterations
+#### func NewRatI
 
 ```go
-func NewRatIterations(val float64, iterations int64) *big.Rat
+func NewRatI(val float64, iterations int64) *big.Rat
 ```
-NewRatIterations returns rational from decimal using `iterations` number of
+NewRatI returns rational from decimal using `iterations` number of
 iterations in Continued Fraction algorythm
 
-#### func NewRatPrecision
+#### func NewRatP
 
 ```go
-func NewRatPrecision(val float64, precision float64) *big.Rat
+func NewRatP(val float64, stepPrecision float64) *big.Rat
 ```
-NewRatPrecision returns rational from decimal by going as mush iterations, until
-next fraction is less than precision
+NewRatP returns rational from decimal by going as mush iterations, until
+next fraction is less than `stepPrecision`
