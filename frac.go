@@ -5,6 +5,9 @@ import (
 	"math/big"
 )
 
+// MaxIterations is some sane limit of iterations for precision mode
+const MaxIterations = 5000
+
 // NewRatI returns rational from decimal
 // using `iterations` number of iterations in Continued Fraction algorythm
 func NewRatI(val float64, iterations int64) *big.Rat {
@@ -14,7 +17,7 @@ func NewRatI(val float64, iterations int64) *big.Rat {
 // NewRatP returns rational from decimal
 // by going as mush iterations, until next fraction is less than `stepPrecision`
 func NewRatP(val float64, stepPrecision float64) *big.Rat {
-	return newRat(val, math.MaxInt64, stepPrecision)
+	return newRat(val, MaxIterations, stepPrecision)
 }
 
 func newRat(val float64, iterations int64, stepPrecision float64) *big.Rat {
