@@ -3,8 +3,6 @@ package dectofrac
 import (
 	"fmt"
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
 
 func TestNewRatI(t *testing.T) {
@@ -27,7 +25,10 @@ func TestNewRatI(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.expected, func(t *testing.T) {
-			assert.Equal(t, test.expected, NewRatI(test.float, test.iterations).String())
+			actual := NewRatI(test.float, test.iterations).String()
+			if actual != test.expected {
+				t.Errorf("expected %s, got %s", test.expected, actual)
+			}
 		})
 	}
 }
@@ -53,7 +54,10 @@ func TestNewRatP(t *testing.T) {
 	}
 	for _, test := range tests {
 		t.Run(test.expected, func(t *testing.T) {
-			assert.Equal(t, test.expected, NewRatP(test.float, test.precision).String())
+			actual := NewRatP(test.float, test.precision).String()
+			if actual != test.expected {
+				t.Errorf("expected %s, got %s", test.expected, actual)
+			}
 		})
 	}
 }
